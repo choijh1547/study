@@ -1,0 +1,18 @@
+{
+    "testkey": "testvalue",
+    "MyArray":
+    [
+        {
+            "childkeyA": "1",
+            "childkeyB": "2"
+        },
+        {
+            "childkeyC": "3",
+            "childkeyD": "4"
+        },
+        {
+            "childkeyE": "5",
+            "childkeyF": "6"
+        }
+    ]
+}
