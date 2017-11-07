@@ -19,12 +19,8 @@ public:
 
 public:
     void parsing();
-    string getInstance(string key);
+    DataManager * getInstance();
     vector<string> getKeySet();
-
-
-private:
-    string read();
 
 private:
     DataManager * m_dataManager;

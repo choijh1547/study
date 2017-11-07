@@ -20,7 +20,7 @@ public:
 public:
     void setData(string key, string value);
     string searchData(string key);
-    vector<string> keyCollector();
+    vector<string> setKeyList();
 
 private:
     dataSet m_dataSet;

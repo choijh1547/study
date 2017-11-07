@@ -22,6 +22,7 @@ public:
     void init();
     void printMenu();
     string getValue(int num);
+    int getKeyCountSize();
 
 private:
     JsonParser * m_jsonParser;

@@ -4,7 +4,6 @@
 
 int main(int argc, char *argv[])
 {
-    string value;
     int i=1;
 
     QCoreApplication a(argc, argv);
@@ -12,7 +11,7 @@ int main(int argc, char *argv[])
     JsonDataBrowser * json_data_browser = new JsonDataBrowser();
     json_data_browser->init();
 
-    while(i != 0)
+    while( i != 0 )
     {
         json_data_browser->printMenu();
 
@@ -23,9 +22,21 @@ int main(int argc, char *argv[])
         {
             break;
         }
+        else if( i > json_data_browser->getKeyCountSize() )
+        {
+            cout << "out of range" << endl;
+            continue;
+        }
 
-        value = json_data_browser->getValue(i);
-        cout << "value: "<< value<< endl;
+        string value = json_data_browser->getValue(i);
+
+        if( value == "error" )
+        {
+            cout << "value is not existed" << endl;
+            continue;
+        }
+
+        cout << "value: " << value << endl;
     }
 
     delete json_data_browser;

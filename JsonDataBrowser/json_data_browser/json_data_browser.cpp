@@ -4,14 +4,14 @@
 #include <QDebug>
 
 JsonDataBrowser::JsonDataBrowser()
-    :m_jsonParser(NULL)//, m_dataManager(NULL)
+    :m_jsonParser(NULL)
 {
     cout << "JsonDataBrowser Start!!" << endl;
 }
 
 JsonDataBrowser::~JsonDataBrowser()
 {
-
+    delete m_jsonParser;
 }
 
 void JsonDataBrowser::init()
@@ -23,15 +23,21 @@ void JsonDataBrowser::init()
 
 void JsonDataBrowser::printMenu()
 {
-    int i;
-    for( i = 0; i < m_keySet.size(); i++ )
+    for( unsigned int i = 0; i < m_keySet.size(); i++ )
     {
-        cout <<i+1 << ": "<< m_keySet.at(i) << endl;
+        cout << i+1 << ": " << m_keySet.at(i) << endl;
     }
 
 }
 
 string JsonDataBrowser::getValue(int num)
 {
-    return m_jsonParser->getInstance(m_keySet.at(num-1));
+    string value = m_jsonParser->getInstance()->searchData((m_keySet.at(num-1)));
+
+    return value;
+}
+
+int JsonDataBrowser::getKeyCountSize()
+{
+    return m_keySet.size();
 }

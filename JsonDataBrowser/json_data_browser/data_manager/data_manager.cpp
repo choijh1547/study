@@ -17,30 +17,31 @@ DataManager::~DataManager()
 void DataManager::setData(string key, string value)
 {
     m_dataSet.insert(pair<string, string>(key,value));
-//    m_dataSet[key] = value ;
-
-//    qDebug() << "aaaaaaaa";
-//    qDebug() << m_dataSet.count("childkeyA");
-
 }
 
 string DataManager::searchData(string key)
 {
-    if( m_dataSet.find(key) == m_dataSet.end())
+    string returnValue;
+    dataSet::iterator searchDataIter = m_dataSet.find(key);
+
+    if( searchDataIter == m_dataSet.end())
     {
-        return "error";
+        returnValue = "error";
     }
+
     else
     {
-        return m_dataSet.find(key)->second;
+        returnValue = searchDataIter->second;
     }
+
+    return returnValue;
 
 }
 
-vector<string> DataManager::keyCollector()
+vector<string> DataManager::setKeyList()
 {
     dataSet::iterator it;
-    for( it = m_dataSet.begin(); it != m_dataSet.end(); it++)
+    for( it = m_dataSet.begin(); it != m_dataSet.end(); it++ )
     {
         m_keySet.push_back(it->first);
     }
