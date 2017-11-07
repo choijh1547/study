@@ -8,8 +8,8 @@
 
 #include <QDebug>
 
-JsonParser::JsonParser()
-        :m_dataManager(new DataManager)
+JsonParser::JsonParser(DataManager* dataManager)
+        :m_dataManager(dataManager)
 {
     cout << "JsonParser Start!!" << endl;
 }

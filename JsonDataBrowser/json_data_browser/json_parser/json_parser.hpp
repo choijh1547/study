@@ -14,7 +14,7 @@ using namespace std;
 class JsonParser
 {
 public:
-    JsonParser();
+    JsonParser(DataManager * dataManager);
     virtual ~JsonParser();
 
 public:

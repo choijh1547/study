@@ -26,6 +26,7 @@ public:
 
 private:
     JsonParser * m_jsonParser;
+    DataManager * m_dataManager;
     keySet m_keySet;
 };
 
