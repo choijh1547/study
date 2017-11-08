@@ -5,3 +5,4 @@ release/
 deploy/
 *~
 *.user
+JsonDataBrowser
