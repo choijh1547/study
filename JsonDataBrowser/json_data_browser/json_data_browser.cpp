@@ -1,10 +1,11 @@
 #include "json_data_browser.hpp"
 #include "json_parser/json_parser.hpp"
 #include "data_manager/data_manager.hpp"
+#include "item_manager/item_manager.hpp"
 #include <QDebug>
 
 JsonDataBrowser::JsonDataBrowser()
-    :m_jsonParser(NULL), m_dataManager(NULL)
+    :m_jsonParser(NULL), m_dataManager(NULL), m_itemManager(NULL)
 {
     cout << "JsonDataBrowser Start!!" << endl;
 }
@@ -17,8 +18,9 @@ JsonDataBrowser::~JsonDataBrowser()
 
 void JsonDataBrowser::init()
 {
+    m_itemManager = new ItemManager();
     m_dataManager = new DataManager();
-    m_jsonParser = new JsonParser(m_dataManager);
+    m_jsonParser = new JsonParser(m_dataManager,m_itemManager);
 
     m_jsonParser->parsing();
     m_keySet = m_jsonParser->getKeySet();
@@ -30,7 +32,6 @@ void JsonDataBrowser::printMenu()
     {
         cout << i+1 << ": " << m_keySet.at(i) << endl;
     }
-
 }
 
 string JsonDataBrowser::getValue(int num)

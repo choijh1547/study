@@ -8,13 +8,15 @@
 #include <vector>
 
 class DataManager;
+class JsonItem;
+class ItemManager;
 
 using namespace std;
 
 class JsonParser
 {
 public:
-    JsonParser(DataManager * dataManager);
+    JsonParser(DataManager * dataManager, ItemManager * itemManager);
     virtual ~JsonParser();
 
 public:
@@ -24,6 +26,7 @@ public:
 
 private:
     DataManager * m_dataManager;
+    ItemManager * m_itemManager;
 
 };
 

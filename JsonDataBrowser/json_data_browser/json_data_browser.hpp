@@ -9,6 +9,7 @@ using namespace std;
 
 class JsonParser;
 class DataManager;
+class ItemManager;
 
 typedef vector <string> keySet;
 
@@ -27,6 +28,7 @@ public:
 private:
     JsonParser * m_jsonParser;
     DataManager * m_dataManager;
+    ItemManager * m_itemManager;
     keySet m_keySet;
 };
 
