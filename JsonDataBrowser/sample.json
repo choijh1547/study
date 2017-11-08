@@ -1,18 +1,25 @@
 {
-    "testkey": "testvalue",
-    "MyArray":
+    "comment": "test json file",
+    "children":
     [
         {
-            "childkeyA": "1",
-            "childkeyB": "2"
+            "id": "11",
+            "name": "speed",
+            "type": "0",
+            "min": "0",
+            "max": "250"
         },
         {
-            "childkeyC": "3",
-            "childkeyD": "4"
+            "id": "13",
+            "name": "rpm",
+            "type": "1",
+            "min": "0",
+            "max": "6000"
         },
         {
-            "childkeyE": "5",
-            "childkeyF": "6"
+            "id": "110",
+            "name": "fuel",
+            "type": "3"
         }
     ]
 }
