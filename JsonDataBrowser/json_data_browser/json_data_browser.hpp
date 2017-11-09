@@ -10,8 +10,9 @@ using namespace std;
 class JsonParser;
 class DataManager;
 class ItemManager;
+class JsonItem;
 
-typedef vector <string> keySet;
+typedef vector <string> JsonDataList;
 
 class JsonDataBrowser
 {
@@ -24,12 +25,15 @@ public:
     void printMenu();
     string getValue(int num);
     int getKeyCountSize();
+    void browseData(int id);
 
 private:
     JsonParser * m_jsonParser;
     DataManager * m_dataManager;
     ItemManager * m_itemManager;
-    keySet m_keySet;
+    JsonDataList m_keySet;
+    JsonDataList m_idList;
+    JsonItem * m_jsonItem;
 };
 
 #endif // JSON_DATA_BROWSER_H

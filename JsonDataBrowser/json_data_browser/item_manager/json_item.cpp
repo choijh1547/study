@@ -39,3 +39,23 @@ string JsonItem::getId()
 {
     return m_id;
 }
+
+string JsonItem::getName()
+{
+    return m_name;
+}
+
+string JsonItem::getType()
+{
+    return m_type;
+}
+
+string JsonItem::getMax()
+{
+    return m_max;
+}
+
+string JsonItem::getMin()
+{
+    return m_min;
+}

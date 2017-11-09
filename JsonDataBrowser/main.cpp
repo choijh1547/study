@@ -18,25 +18,29 @@ int main(int argc, char *argv[])
         cout << "enter the number: ";
         cin >> i;
 
-        if( i == 0 )
-        {
-            break;
-        }
-        else if( i > json_data_browser->getKeyCountSize() )
-        {
-            cout << "out of range" << endl;
-            continue;
-        }
+//        if( i == 0 )
+//        {
+//            break;
+//        }
+//        else if( i > json_data_browser->getKeyCountSize() )
+//        {
+//            cout << "out of range" << endl;
+//            continue;
+//        }
 
-        string value = json_data_browser->getValue(i);
+        json_data_browser->browseData(i);
 
-        if( value == "error" )
-        {
-            cout << "value is not existed" << endl;
-            continue;
-        }
 
-        cout << "value: " << value << endl;
+
+//        string value = json_data_browser->getValue(i);
+
+//        if( value == "error" )
+//        {
+//            cout << "value is not existed" << endl;
+//            continue;
+//        }
+
+//        cout << "value: " << value << endl;
     }
 
     delete json_data_browser;

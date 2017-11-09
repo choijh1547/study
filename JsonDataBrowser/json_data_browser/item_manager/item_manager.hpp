@@ -18,6 +18,7 @@ public:
 public:
     void setItem(JsonItem * jsonItem);
     vector<string> setId();
+    void searchData(string id);
 
 private:
     map <string,JsonItem*> m_jsonItemList;

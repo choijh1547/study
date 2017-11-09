@@ -45,11 +45,11 @@ void JsonParser::parsing()
 
             BOOST_FOREACH( boost::property_tree::ptree::value_type &vt2, vt1.second )
             {
-                if(vt2.first == "id")   jsonItem->setId(vt2.second.data());
-                if(vt2.first == "name")   jsonItem->setName(vt2.second.data());
-                if(vt2.first == "type")   jsonItem->setType(vt2.second.data());
-                if(vt2.first == "max")   jsonItem->setMax(vt2.second.data());
-                if(vt2.first == "min")   jsonItem->setMin(vt2.second.data());
+                if( vt2.first == "id" )     jsonItem->setId(vt2.second.data());
+                if( vt2.first == "name" )   jsonItem->setName(vt2.second.data());
+                if( vt2.first == "type" )   jsonItem->setType(vt2.second.data());
+                if( vt2.first == "max" )    jsonItem->setMax(vt2.second.data());
+                if( vt2.first == "min" )    jsonItem->setMin(vt2.second.data());
             }
 
             m_itemManager->setItem(jsonItem);
@@ -62,7 +62,7 @@ DataManager* JsonParser::getInstance()
     return m_dataManager;
 }
 
-vector<string> JsonParser::getKeySet()
-{
-    return m_dataManager->setKeyList();
-}
+//vector<string> JsonParser::getKeySet()
+//{
+//    return m_dataManager->setKeyList();
+//}

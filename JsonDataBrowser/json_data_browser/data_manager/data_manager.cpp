@@ -28,23 +28,21 @@ string DataManager::searchData(string key)
     {
         returnValue = "error";
     }
-
     else
     {
         returnValue = searchDataIter->second;
     }
 
     return returnValue;
-
 }
 
-vector<string> DataManager::setKeyList()
-{
-    dataSet::iterator it;
-    for( it = m_dataSet.begin(); it != m_dataSet.end(); it++ )
-    {
-        m_keySet.push_back(it->first);
-    }
+//vector<string> DataManager::setKeyList()
+//{
+//    dataSet::iterator it;
+//    for( it = m_dataSet.begin(); it != m_dataSet.end(); it++ )
+//    {
+//        m_keySet.push_back(it->first);
+//    }
 
-    return m_keySet;
-}
+//    return m_keySet;
+//}

@@ -21,7 +21,7 @@ vector<string> ItemManager::setId()
 {
     vector<string> idList;
     map<string,JsonItem*>::iterator it;
-    for(it = m_jsonItemList.begin(); it != m_jsonItemList.end() ; it++)
+    for( it = m_jsonItemList.begin(); it != m_jsonItemList.end(); it++ )
     {
         idList.push_back(it->first);
     }
@@ -29,4 +29,11 @@ vector<string> ItemManager::setId()
     return idList;
 }
 
-
+void ItemManager::searchData(string id)
+{
+    cout << "id: " << id << endl;
+    cout << "name: " << m_jsonItemList.at(id)->getName() << endl;
+    cout << "type: " << m_jsonItemList.at(id)->getType() << endl;
+    cout << "max: " << m_jsonItemList.at(id)->getMax() << endl;
+    cout << "min: " << m_jsonItemList.at(id)->getMin() << endl;
+}

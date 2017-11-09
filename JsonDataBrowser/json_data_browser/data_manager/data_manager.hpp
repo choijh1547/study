@@ -24,7 +24,7 @@ public:
 
 private:
     dataSet m_dataSet;
-    keySet m_keySet;
+    dataSet m_keySet;
 
 };
 

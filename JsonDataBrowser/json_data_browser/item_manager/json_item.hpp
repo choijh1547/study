@@ -18,6 +18,10 @@ public:
     void setMax(string max);
     void setMin(string min);
     string getId();
+    string getName();
+    string getType();
+    string getMax();
+    string getMin();
 
 private:
     string m_id;
