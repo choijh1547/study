@@ -17,18 +17,23 @@ public:
     void setType(string type);
     void setMax(string max);
     void setMin(string min);
+
     string getId();
     string getName();
     string getType();
     string getMax();
     string getMin();
+    bool getHasMaxValue();
+    bool getHasMinValue();
 
 private:
     string m_id;
     string m_name;
     string m_type;
-    string m_min;
     string m_max;
+    string m_min;
+    bool m_hasMaxValue;
+    bool m_hasMinValue;
 };
 
 

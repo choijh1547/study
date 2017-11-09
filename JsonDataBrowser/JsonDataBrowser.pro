@@ -59,7 +59,6 @@ INSTALLS +=additional_files
 
 SOURCES += main.cpp \
     $$PWD/json_data_browser/json_parser/json_parser.cpp \
-    $$PWD/json_data_browser/data_manager/data_manager.cpp \
     $$PWD/json_data_browser/json_data_browser.cpp \
     json_data_browser/item_manager/item_manager.cpp \
     json_data_browser/item_manager/json_item.cpp
@@ -67,7 +66,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     $$PWD/json_data_browser/json_parser/json_parser.hpp \
-    $$PWD/json_data_browser/data_manager/data_manager.hpp \
     $$PWD/json_data_browser/json_data_browser.hpp \
     json_data_browser/item_manager/item_manager.hpp \
     json_data_browser/item_manager/json_item.hpp

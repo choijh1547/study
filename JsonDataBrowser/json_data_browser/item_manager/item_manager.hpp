@@ -19,6 +19,8 @@ public:
     void setItem(JsonItem * jsonItem);
     vector<string> setId();
     void searchData(string id);
+    bool isIdExist(string id);
+    void printData(JsonItem * jsonItem);
 
 private:
     map <string,JsonItem*> m_jsonItemList;

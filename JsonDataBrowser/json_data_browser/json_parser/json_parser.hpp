@@ -7,7 +7,6 @@
 #include <boost/foreach.hpp>
 #include <vector>
 
-class DataManager;
 class JsonItem;
 class ItemManager;
 
@@ -16,16 +15,13 @@ using namespace std;
 class JsonParser
 {
 public:
-    JsonParser(DataManager * dataManager, ItemManager * itemManager);
+    JsonParser(ItemManager * itemManager);
     virtual ~JsonParser();
 
 public:
     void parsing();
-    DataManager * getInstance();
-    vector<string> getKeySet();
 
 private:
-    DataManager * m_dataManager;
     ItemManager * m_itemManager;
 
 };

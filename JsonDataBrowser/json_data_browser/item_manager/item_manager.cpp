@@ -31,9 +31,36 @@ vector<string> ItemManager::setId()
 
 void ItemManager::searchData(string id)
 {
-    cout << "id: " << id << endl;
-    cout << "name: " << m_jsonItemList.at(id)->getName() << endl;
-    cout << "type: " << m_jsonItemList.at(id)->getType() << endl;
-    cout << "max: " << m_jsonItemList.at(id)->getMax() << endl;
-    cout << "min: " << m_jsonItemList.at(id)->getMin() << endl;
+    map<string,JsonItem *>::iterator iter = m_jsonItemList.find(id);
+
+    if(iter == m_jsonItemList.end())
+    {
+        cout << "\n============================" << endl;
+        cout << "< Error > id doesn't exist" << endl;
+        cout << "============================" << endl;
+        return;
+    }
+
+    printData(iter->second);
 }
+
+void ItemManager::printData(JsonItem *jsonItem)
+{
+    cout << "\n====================" << endl;
+    cout << "1. id   : " << jsonItem->getId() << endl;
+    cout << "2. name : " << jsonItem->getName() << endl;
+    cout << "3. type : " << jsonItem->getType() << endl;
+
+    if( jsonItem->getHasMaxValue() )
+    {
+        cout << "4. max  : " << jsonItem->getMax() << endl;
+    }
+    if( jsonItem->getHasMinValue() )
+    {
+        cout << "5. min  : " << jsonItem->getMin() << endl;
+    }
+
+    cout << "====================" << endl;
+
+}
+

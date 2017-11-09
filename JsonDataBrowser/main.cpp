@@ -4,43 +4,25 @@
 
 int main(int argc, char *argv[])
 {
-    int i=1;
+    int id = 1;
 
     QCoreApplication a(argc, argv);
 
     JsonDataBrowser * json_data_browser = new JsonDataBrowser();
     json_data_browser->init();
 
-    while( i != 0 )
+    while( id != 0 )
     {
         json_data_browser->printMenu();
+        cout << " >> enter the id: ";
+        cin >> id;
 
-        cout << "enter the number: ";
-        cin >> i;
+        if( id == 0 )
+        {
+            break;
+        }
 
-//        if( i == 0 )
-//        {
-//            break;
-//        }
-//        else if( i > json_data_browser->getKeyCountSize() )
-//        {
-//            cout << "out of range" << endl;
-//            continue;
-//        }
-
-        json_data_browser->browseData(i);
-
-
-
-//        string value = json_data_browser->getValue(i);
-
-//        if( value == "error" )
-//        {
-//            cout << "value is not existed" << endl;
-//            continue;
-//        }
-
-//        cout << "value: " << value << endl;
+        json_data_browser->browseData(id);
     }
 
     delete json_data_browser;
