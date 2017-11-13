@@ -128,6 +128,7 @@ Window {
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
+
             MouseArea
             {
                 id:removeMouseArea
@@ -163,10 +164,12 @@ Window {
             height: parent.height
             delegate:
                 Component{
+
                 Rectangle{
                     width: list.width
                     height: list.height/10
                     border.color: "black"
+
                     Text{
                         text: test.getData()
                         anchors.verticalCenter : parent.verticalCenter

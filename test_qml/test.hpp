@@ -31,7 +31,6 @@ private:
     int m_button2;
 
     QMap <QString, int> m_clickedCount;
-
     QVector <QString> m_itemList;
 
 };

@@ -20,10 +20,10 @@ void Test::init()
 
 void Test::clickCount(QString str)
 {
-    if(str == "button1")
+    if( str == "button1" )
     {
         qDebug() <<rowCount();
-        if(rowCount() < 10)
+        if( rowCount() < 10 )
         {
             m_clickedCount[str] = ++m_button1;
         }
@@ -31,9 +31,9 @@ void Test::clickCount(QString str)
         {
         }
     }
-    else if(str == "button2")
+    else if( str == "button2" )
     {
-        if(rowCount() < 10)
+        if( rowCount() < 10 )
         {
             m_clickedCount[str] = ++m_button2;
         }
@@ -50,26 +50,26 @@ void Test::printAll()
     QMap<QString, int>::iterator iter;
 
     qDebug() << "<button clicked>" ;
-    for(iter = m_clickedCount.begin(); iter != m_clickedCount.end(); iter++)
+    for( iter = m_clickedCount.begin(); iter != m_clickedCount.end(); iter++ )
     {
-        qDebug() << iter.key() << ": " << iter.value() ;
+        qDebug() << iter.key() << ": " << iter.value();
     }
 }
 
 void Test::addItem(QString btnNum)
 {
-    if(rowCount() < 10)
+    if( rowCount() < 10 )
     {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
         m_itemList << btnNum;
         endInsertRows();
+        qDebug() << "addData: " << m_itemList.at(rowCount()-1);
+        qDebug() << "addItem: " << rowCount();
     }
     else
     {
         qDebug() << "out of range" ;
     }
-    qDebug() << "addItem: " <<rowCount();
-
 }
 
 int Test::rowCount(const QModelIndex &parent) const
@@ -90,7 +90,7 @@ QString Test::getData()
 
 void Test::removeItem()
 {
-    if(m_itemList.empty())
+    if( m_itemList.empty() )
     {
         return;
     }
@@ -106,7 +106,7 @@ void Test::removeItem()
 
 void Test::removeCount()
 {
-    if(m_itemList.empty())
+    if( m_itemList.empty() )
     {
         qDebug() << "Data Empty!!";
         return;
@@ -114,16 +114,16 @@ void Test::removeCount()
 
     QString str = m_itemList.last();
 
-    if(str == "button1")
+    if( str == "button1" )
     {
-        if(m_itemList.count() >0)
+        if( m_itemList.count() > 0 )
         {
             m_clickedCount[str] = --m_button1;
         }
     }
-    else if(str == "button2")
+    else if( str == "button2" )
     {
-        if(m_itemList.count() >0)
+        if( m_itemList.count() > 0 )
         {
             m_clickedCount[str] = --m_button2;
         }
