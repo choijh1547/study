@@ -7,7 +7,7 @@ Window {
     height: 480
 
     Component.onCompleted: {
-         test.init()
+        test.init()
     }
 
     Item{
@@ -21,6 +21,17 @@ Window {
             anchors.fill: parent
             color:"yellow"
             opacity: 0.3
+        }
+
+        Text
+        {
+            id:eventText
+            width: layout1.width
+            height: 100
+            text: btn1MouseArea.pressed ? "InsertData: "+button1.objectName : btn2MouseArea.pressed ? "InsertData: "+button2.objectName : ""
+            y:button1.y/2
+            horizontalAlignment: Text.AlignHCenter
+
         }
 
         Rectangle
@@ -49,6 +60,7 @@ Window {
                 onClicked:
                 {
                     test.clickCount(button1.objectName);
+                    test.addItem("button1")
                 }
             }
         }
@@ -67,18 +79,6 @@ Window {
             color:"green"
             opacity: 0.3
         }
-
-        Text
-        {
-            id:eventText
-            width: layout2.width
-            height: 100
-            text:btn1MouseArea.pressed ? "button1" : btn2MouseArea.pressed ? "button2" : btn3MouseArea.pressed ? "button3" : ""
-            y:button2.y/2
-            horizontalAlignment: Text.AlignHCenter
-
-        }
-
 
         Rectangle
         {
@@ -106,6 +106,35 @@ Window {
                 onClicked:
                 {
                     test.clickCount(button2.objectName);
+                    test.addItem("button2")
+                }
+            }
+        }
+
+        Rectangle
+        {
+            id:removeButton
+            width: 100
+            height: 75
+            color: removeMouseArea.pressed ? "yellow" : "black"
+            anchors.horizontalCenter:  parent.horizontalCenter
+
+            Text
+            {
+                id:removeText
+                text:"remove"
+                color: "white"
+                anchors.fill: parent
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            MouseArea
+            {
+                id:removeMouseArea
+                anchors.fill:parent
+                onClicked:
+                {
+                    test.removeItem();
                 }
             }
         }
@@ -125,37 +154,27 @@ Window {
             opacity: 0.3
         }
 
-
-        Rectangle
+        ListView
         {
-            id: button3
-            objectName: "button3"
-            width: 100
-            height: 75
-            color: btn3MouseArea.pressed ? "red" : "gray"
-            anchors.centerIn:parent
-
-            Text
-            {
-                id:button3Text
-                text:"button3"
-                color: btn3MouseArea.pressed ? "white" : "black"
-                anchors.fill:parent
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-            }
-
-            MouseArea
-            {
-                id:btn3MouseArea
-                anchors.fill:parent
-                onClicked:
-                {
-                    test.clickCount(button3.objectName);
+            id:list
+            model:test
+            width: parent.width
+            height: parent.height
+            delegate:
+                Component{
+                Rectangle{
+                    width: list.width
+                    height: list.height/10
+                    border.color: "black"
+                    Text{
+                        text: test.getData()
+                        anchors.verticalCenter : parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 30
+                    }
                 }
             }
         }
-
     }
 }
 
