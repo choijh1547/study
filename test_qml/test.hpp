@@ -23,7 +23,7 @@ public:
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
     Q_INVOKABLE QString getData();
     Q_INVOKABLE void removeItem();
-    Q_INVOKABLE void removeCount(QString str);
+    Q_INVOKABLE void removeCount();
 
 
 private:
@@ -32,7 +32,7 @@ private:
 
     QMap <QString, int> m_clickedCount;
 
-    QList <QString> m_itemList;
+    QVector <QString> m_itemList;
 
 };
 

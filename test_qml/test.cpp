@@ -25,8 +25,7 @@ void Test::clickCount(QString str)
         qDebug() <<rowCount();
         if(rowCount() < 10)
         {
-            m_button1++;
-            m_clickedCount[str] = m_button1;
+            m_clickedCount[str] = ++m_button1;
         }
         else
         {
@@ -36,8 +35,7 @@ void Test::clickCount(QString str)
     {
         if(rowCount() < 10)
         {
-            m_button2++;
-            m_clickedCount[str] = m_button2;
+            m_clickedCount[str] = ++m_button2;
         }
         else
         {
@@ -92,19 +90,30 @@ QString Test::getData()
 
 void Test::removeItem()
 {
-    if(m_itemList.count() > 0)
+    if(m_itemList.empty())
     {
+        return;
+    }
+
         QString removeData = m_itemList.at(rowCount()-1);
         beginRemoveRows(QModelIndex(),rowCount()-1,rowCount()-1);
         m_itemList.removeLast();
         endRemoveRows();
         qDebug() << "removeData:" << removeData;
-        qDebug() << rowCount();
-    }
+        qDebug() << "totalItemCount: " << rowCount();
+
 }
 
-void Test::removeCount(QString str)
+void Test::removeCount()
 {
+    if(m_itemList.empty())
+    {
+        qDebug() << "Data Empty!!";
+        return;
+    }
+
+    QString str = m_itemList.last();
+
     if(str == "button1")
     {
         if(m_itemList.count() >0)

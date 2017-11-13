@@ -134,6 +134,7 @@ Window {
                 anchors.fill:parent
                 onClicked:
                 {
+                    test.removeCount();
                     test.removeItem();
                 }
             }

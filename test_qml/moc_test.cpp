@@ -72,7 +72,7 @@ static const uint qt_meta_data_Test[] = {
        8,    0,   70,    2, 0x22 /* Public | MethodCloned */,
       10,    0,   71,    2, 0x02 /* Public */,
       11,    0,   72,    2, 0x02 /* Public */,
-      12,    1,   73,    2, 0x02 /* Public */,
+      12,    0,   73,    2, 0x02 /* Public */,
 
  // methods: parameters
     QMetaType::Void,
@@ -83,7 +83,7 @@ static const uint qt_meta_data_Test[] = {
     QMetaType::Int,
     QMetaType::QString,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -105,7 +105,7 @@ void Test::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 6: { QString _r = _t->getData();
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         case 7: _t->removeItem(); break;
-        case 8: _t->removeCount((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->removeCount(); break;
         default: ;
         }
     }
