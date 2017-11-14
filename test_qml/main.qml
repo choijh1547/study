@@ -12,7 +12,7 @@ Window {
 
     Item{
         id:layout1
-        width: parent.width/3
+        width: parent.width/4
         height: parent.height
 
         Rectangle
@@ -59,8 +59,15 @@ Window {
                 anchors.fill:parent
                 onClicked:
                 {
-                    test.clickCount(button1.objectName);
-                    test.addItem("button1")
+                    if( test.currentStatus() == false )
+                    {
+                        test.clickCount(button1.objectName);
+                        test.addItem("button1 No."+test.btn1Count())
+                    }
+                    else
+                    {
+                        print("aaaaaaaaaaaaaaaaaaaaa")
+                    }
                 }
             }
         }
@@ -68,7 +75,7 @@ Window {
 
     Item{
         id:layout2
-        width: parent.width/3
+        width: parent.width/4
         height: parent.height
         anchors.left: layout1.right
 
@@ -105,8 +112,15 @@ Window {
                 anchors.fill:parent
                 onClicked:
                 {
-                    test.clickCount(button2.objectName);
-                    test.addItem("button2")
+                    if( test.currentStatus() == false )
+                    {
+                        test.clickCount(button2.objectName);
+                        test.addItem("button2 No."+test.btn2Count())
+                    }
+                    else
+                    {
+                        print("bbbbbbbbbbbbbbbbbbb")
+                    }
                 }
             }
         }
@@ -144,7 +158,7 @@ Window {
 
     Item{
         id:layout3
-        width: parent.width/3
+        width: parent.width/4
         height: parent.height
         anchors.left: layout2.right
 
@@ -169,6 +183,7 @@ Window {
                     width: list.width
                     height: list.height/10
                     border.color: "black"
+                    color: listItemMouseArea.pressed ? "gray" : "white"
 
                     Text{
                         text: test.getData()
@@ -184,8 +199,26 @@ Window {
                         anchors.fill: parent
                         onClicked:
                         {
-                            list.currentIndex = index
-                            print("ItemIndex: ",list.currentIndex)
+                            if( test.currentStatus() == false )
+                            {
+
+                                list.currentIndex = index
+                                test.changedStatus(true)
+                                print("ItemIndex: ",list.currentIndex)
+
+                            }
+                            else
+                            {
+                                if( list.currentIndex != index )
+                                {
+                                    list.currentIndex = index
+                                    print("true")
+                                }
+                                else
+                                {
+                                    test.changedStatus(false)
+                                }
+                            }
                         }
                     }
                 }

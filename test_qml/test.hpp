@@ -8,6 +8,8 @@
 #include <QMap>
 #include <QList>
 
+class SubTest;
+
 class Test : public QAbstractListModel
 {
     Q_OBJECT
@@ -24,7 +26,10 @@ public:
     Q_INVOKABLE QString getData();
     Q_INVOKABLE void removeItem();
     Q_INVOKABLE void removeCount();
-
+    Q_INVOKABLE int btn1Count();
+    Q_INVOKABLE int btn2Count();
+    Q_INVOKABLE bool currentStatus();
+    Q_INVOKABLE void changedStatus(bool status);
 
 private:
     int m_button1;
@@ -32,6 +37,10 @@ private:
 
     QMap <QString, int> m_clickedCount;
     QVector <QString> m_itemList;
+    QVector<SubTest *> m_subTestList;
+
+    bool m_status;
+
 
 };
 

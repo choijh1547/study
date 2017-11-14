@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Test_t {
-    QByteArrayData data[13];
-    char stringdata0[97];
+    QByteArrayData data[18];
+    char stringdata0[152];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,12 +41,19 @@ QT_MOC_LITERAL(8, 50, 8), // "rowCount"
 QT_MOC_LITERAL(9, 59, 6), // "parent"
 QT_MOC_LITERAL(10, 66, 7), // "getData"
 QT_MOC_LITERAL(11, 74, 10), // "removeItem"
-QT_MOC_LITERAL(12, 85, 11) // "removeCount"
+QT_MOC_LITERAL(12, 85, 11), // "removeCount"
+QT_MOC_LITERAL(13, 97, 9), // "btn1Count"
+QT_MOC_LITERAL(14, 107, 9), // "btn2Count"
+QT_MOC_LITERAL(15, 117, 13), // "currentStatus"
+QT_MOC_LITERAL(16, 131, 13), // "changedStatus"
+QT_MOC_LITERAL(17, 145, 6) // "status"
 
     },
     "Test\0init\0\0clickCount\0str\0printAll\0"
     "addItem\0btnNum\0rowCount\0parent\0getData\0"
-    "removeItem\0removeCount"
+    "removeItem\0removeCount\0btn1Count\0"
+    "btn2Count\0currentStatus\0changedStatus\0"
+    "status"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +63,7 @@ static const uint qt_meta_data_Test[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,15 +71,19 @@ static const uint qt_meta_data_Test[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x02 /* Public */,
-       3,    1,   60,    2, 0x02 /* Public */,
-       5,    0,   63,    2, 0x02 /* Public */,
-       6,    1,   64,    2, 0x02 /* Public */,
-       8,    1,   67,    2, 0x02 /* Public */,
-       8,    0,   70,    2, 0x22 /* Public | MethodCloned */,
-      10,    0,   71,    2, 0x02 /* Public */,
-      11,    0,   72,    2, 0x02 /* Public */,
-      12,    0,   73,    2, 0x02 /* Public */,
+       1,    0,   79,    2, 0x02 /* Public */,
+       3,    1,   80,    2, 0x02 /* Public */,
+       5,    0,   83,    2, 0x02 /* Public */,
+       6,    1,   84,    2, 0x02 /* Public */,
+       8,    1,   87,    2, 0x02 /* Public */,
+       8,    0,   90,    2, 0x22 /* Public | MethodCloned */,
+      10,    0,   91,    2, 0x02 /* Public */,
+      11,    0,   92,    2, 0x02 /* Public */,
+      12,    0,   93,    2, 0x02 /* Public */,
+      13,    0,   94,    2, 0x02 /* Public */,
+      14,    0,   95,    2, 0x02 /* Public */,
+      15,    0,   96,    2, 0x02 /* Public */,
+      16,    1,   97,    2, 0x02 /* Public */,
 
  // methods: parameters
     QMetaType::Void,
@@ -84,6 +95,10 @@ static const uint qt_meta_data_Test[] = {
     QMetaType::QString,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Int,
+    QMetaType::Int,
+    QMetaType::Bool,
+    QMetaType::Void, QMetaType::Bool,   17,
 
        0        // eod
 };
@@ -106,6 +121,13 @@ void Test::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
             if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         case 7: _t->removeItem(); break;
         case 8: _t->removeCount(); break;
+        case 9: { int _r = _t->btn1Count();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 10: { int _r = _t->btn2Count();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 11: { bool _r = _t->currentStatus();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 12: _t->changedStatus((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -136,13 +158,13 @@ int Test::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 13;
     }
     return _id;
 }

@@ -1,13 +1,14 @@
 #include "test.hpp"
-#include <QDebug>
+#include "subtest.hpp"
 
+#include <QDebug>
 #include <iostream>
 
 using namespace std;
 
 
 Test::Test(QObject *parent)
-    : QAbstractListModel(parent), m_button1(0), m_button2(0), m_clickedCount(), m_itemList()
+    : QAbstractListModel(parent), m_button1(0), m_button2(0), m_status(false), m_clickedCount(), m_itemList()
 {
 
 }
@@ -58,6 +59,8 @@ void Test::printAll()
 
 void Test::addItem(QString btnNum)
 {
+    SubTest * subTest = new SubTest;
+    m_subTestList.append(subTest);
     if( rowCount() < 10 )
     {
         beginInsertRows(QModelIndex(), rowCount(), rowCount());
@@ -65,6 +68,7 @@ void Test::addItem(QString btnNum)
         endInsertRows();
         qDebug() << "addData: " << m_itemList.at(rowCount()-1);
         qDebug() << "addItem: " << rowCount();
+        qDebug() << "sub: " << m_subTestList.size();
     }
     else
     {
@@ -130,6 +134,26 @@ void Test::removeCount()
     }
 
     printAll();
+}
+
+int Test::btn1Count()
+{
+    return m_button1;
+}
+
+int Test::btn2Count()
+{
+    return m_button2;
+}
+
+bool Test::currentStatus()
+{
+    return m_status;
+}
+
+void Test::changedStatus(bool status)
+{
+    m_status = status;
 }
 
 
