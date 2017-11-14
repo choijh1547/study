@@ -66,7 +66,7 @@ Window {
                     }
                     else
                     {
-                        print("aaaaaaaaaaaaaaaaaaaaa")
+                        test.setSubData("button1 No."+test.subBtn1Count())
                     }
                 }
             }
@@ -119,7 +119,7 @@ Window {
                     }
                     else
                     {
-                        print("bbbbbbbbbbbbbbbbbbb")
+                        test.setSubData("button2 No."+test.subBtn2Count())
                     }
                 }
             }
@@ -172,7 +172,7 @@ Window {
 
         ListView
         {
-            id:list
+            id:mainList
             model:test
             width: parent.width
             height: parent.height
@@ -180,8 +180,8 @@ Window {
                 Component{
 
                 Rectangle{
-                    width: list.width
-                    height: list.height/10
+                    width: mainList.width
+                    height: mainList.height/10
                     border.color: "black"
                     color: listItemMouseArea.pressed ? "gray" : "white"
 
@@ -202,16 +202,17 @@ Window {
                             if( test.currentStatus() == false )
                             {
 
-                                list.currentIndex = index
+                                mainList.currentIndex = index
                                 test.changedStatus(true)
-                                print("ItemIndex: ",list.currentIndex)
-
+                                print("ItemIndex: ",mainList.currentIndex)
+                                test.setCurrentIndex(mainList.currentIndex)
                             }
                             else
                             {
-                                if( list.currentIndex != index )
+                                if( mainList.currentIndex != index )
                                 {
-                                    list.currentIndex = index
+                                    mainList.currentIndex = index
+                                    test.setCurrentIndex(mainList.currentIndex)
                                     print("true")
                                 }
                                 else
@@ -221,8 +222,48 @@ Window {
                             }
                         }
                     }
+
                 }
             }
+        }
+    }
+
+    Item{
+        id:layout4
+        width:parent.width/4
+        height:parent.height
+        anchors.left: layout3.right
+
+        Rectangle
+        {
+            id:bg4
+            anchors.fill:parent
+            color:"orange"
+            opacity:0.3
+        }
+
+        ListView
+        {
+            id:subList
+            width: parent.width
+            height: parent.height
+            delegate:
+                Component{
+                Rectangle{
+                    width: subList.width
+                    height: subList.height/10
+                    border.color: "black"
+                    color: listItemMouseArea.pressed ? "gray" : "white"
+
+                    Text{
+//                        text:
+                        anchors.verticalCenter : parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: 30
+                    }
+                }
+            }
+
         }
     }
 }

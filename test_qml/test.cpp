@@ -8,7 +8,7 @@ using namespace std;
 
 
 Test::Test(QObject *parent)
-    : QAbstractListModel(parent), m_button1(0), m_button2(0), m_status(false), m_clickedCount(), m_itemList()
+    : QAbstractListModel(parent), m_button1(0), m_button2(0), m_currentIndex(), m_status(false), m_clickedCount(), m_itemList()
 {
 
 }
@@ -68,7 +68,7 @@ void Test::addItem(QString btnNum)
         endInsertRows();
         qDebug() << "addData: " << m_itemList.at(rowCount()-1);
         qDebug() << "addItem: " << rowCount();
-        qDebug() << "sub: " << m_subTestList.size();
+        qDebug() << "subTestListSize: " << m_subTestList.size();
     }
     else
     {
@@ -98,11 +98,11 @@ void Test::removeItem()
     {
         return;
     }
-
         QString removeData = m_itemList.at(rowCount()-1);
         beginRemoveRows(QModelIndex(),rowCount()-1,rowCount()-1);
         m_itemList.removeLast();
         endRemoveRows();
+        m_subTestList.pop_back();
         qDebug() << "removeData:" << removeData;
         qDebug() << "totalItemCount: " << rowCount();
 
@@ -156,5 +156,28 @@ void Test::changedStatus(bool status)
     m_status = status;
 }
 
+void Test::setCurrentIndex(int index)
+{
+    m_currentIndex = index;
+    qDebug() << "currentIndex: " << m_currentIndex;
+}
 
+int Test::getCurrentIndex()
+{
+    return m_currentIndex;
+}
 
+void Test::setSubData(QString str)
+{
+    m_subTestList.at(m_currentIndex)->addSubData(str);
+}
+
+int Test::subBtn1Count()
+{
+    return m_subTestList.at(m_currentIndex)->button1Count();
+}
+
+int Test::subBtn2Count()
+{
+    return m_subTestList.at(m_currentIndex)->button2Count();
+}

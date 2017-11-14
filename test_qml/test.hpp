@@ -30,18 +30,22 @@ public:
     Q_INVOKABLE int btn2Count();
     Q_INVOKABLE bool currentStatus();
     Q_INVOKABLE void changedStatus(bool status);
+    Q_INVOKABLE void setCurrentIndex(int index);
+    Q_INVOKABLE int getCurrentIndex();
+    Q_INVOKABLE void setSubData(QString str);
+    Q_INVOKABLE int subBtn1Count();
+    Q_INVOKABLE int subBtn2Count();
 
 private:
     int m_button1;
     int m_button2;
+    int m_currentIndex;
 
     QMap <QString, int> m_clickedCount;
     QVector <QString> m_itemList;
     QVector<SubTest *> m_subTestList;
 
     bool m_status;
-
-
 };
 
 #endif // TEST_H

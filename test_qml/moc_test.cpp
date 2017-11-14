@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Test_t {
-    QByteArrayData data[18];
-    char stringdata0[152];
+    QByteArrayData data[24];
+    char stringdata0[227];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,14 +46,22 @@ QT_MOC_LITERAL(13, 97, 9), // "btn1Count"
 QT_MOC_LITERAL(14, 107, 9), // "btn2Count"
 QT_MOC_LITERAL(15, 117, 13), // "currentStatus"
 QT_MOC_LITERAL(16, 131, 13), // "changedStatus"
-QT_MOC_LITERAL(17, 145, 6) // "status"
+QT_MOC_LITERAL(17, 145, 6), // "status"
+QT_MOC_LITERAL(18, 152, 15), // "setCurrentIndex"
+QT_MOC_LITERAL(19, 168, 5), // "index"
+QT_MOC_LITERAL(20, 174, 15), // "getCurrentIndex"
+QT_MOC_LITERAL(21, 190, 10), // "setSubData"
+QT_MOC_LITERAL(22, 201, 12), // "subBtn1Count"
+QT_MOC_LITERAL(23, 214, 12) // "subBtn2Count"
 
     },
     "Test\0init\0\0clickCount\0str\0printAll\0"
     "addItem\0btnNum\0rowCount\0parent\0getData\0"
     "removeItem\0removeCount\0btn1Count\0"
     "btn2Count\0currentStatus\0changedStatus\0"
-    "status"
+    "status\0setCurrentIndex\0index\0"
+    "getCurrentIndex\0setSubData\0subBtn1Count\0"
+    "subBtn2Count"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +71,7 @@ static const uint qt_meta_data_Test[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,19 +79,24 @@ static const uint qt_meta_data_Test[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x02 /* Public */,
-       3,    1,   80,    2, 0x02 /* Public */,
-       5,    0,   83,    2, 0x02 /* Public */,
-       6,    1,   84,    2, 0x02 /* Public */,
-       8,    1,   87,    2, 0x02 /* Public */,
-       8,    0,   90,    2, 0x22 /* Public | MethodCloned */,
-      10,    0,   91,    2, 0x02 /* Public */,
-      11,    0,   92,    2, 0x02 /* Public */,
-      12,    0,   93,    2, 0x02 /* Public */,
-      13,    0,   94,    2, 0x02 /* Public */,
-      14,    0,   95,    2, 0x02 /* Public */,
-      15,    0,   96,    2, 0x02 /* Public */,
-      16,    1,   97,    2, 0x02 /* Public */,
+       1,    0,  104,    2, 0x02 /* Public */,
+       3,    1,  105,    2, 0x02 /* Public */,
+       5,    0,  108,    2, 0x02 /* Public */,
+       6,    1,  109,    2, 0x02 /* Public */,
+       8,    1,  112,    2, 0x02 /* Public */,
+       8,    0,  115,    2, 0x22 /* Public | MethodCloned */,
+      10,    0,  116,    2, 0x02 /* Public */,
+      11,    0,  117,    2, 0x02 /* Public */,
+      12,    0,  118,    2, 0x02 /* Public */,
+      13,    0,  119,    2, 0x02 /* Public */,
+      14,    0,  120,    2, 0x02 /* Public */,
+      15,    0,  121,    2, 0x02 /* Public */,
+      16,    1,  122,    2, 0x02 /* Public */,
+      18,    1,  125,    2, 0x02 /* Public */,
+      20,    0,  128,    2, 0x02 /* Public */,
+      21,    1,  129,    2, 0x02 /* Public */,
+      22,    0,  132,    2, 0x02 /* Public */,
+      23,    0,  133,    2, 0x02 /* Public */,
 
  // methods: parameters
     QMetaType::Void,
@@ -99,6 +112,11 @@ static const uint qt_meta_data_Test[] = {
     QMetaType::Int,
     QMetaType::Bool,
     QMetaType::Void, QMetaType::Bool,   17,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Int,
+    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Int,
+    QMetaType::Int,
 
        0        // eod
 };
@@ -128,6 +146,14 @@ void Test::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         case 11: { bool _r = _t->currentStatus();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
         case 12: _t->changedStatus((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 13: _t->setCurrentIndex((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: { int _r = _t->getCurrentIndex();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 15: _t->setSubData((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 16: { int _r = _t->subBtn1Count();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 17: { int _r = _t->subBtn2Count();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         default: ;
         }
     }
@@ -158,13 +184,13 @@ int Test::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 18)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        _id -= 18;
     }
     return _id;
 }
