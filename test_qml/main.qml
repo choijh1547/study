@@ -176,6 +176,18 @@ Window {
                         anchors.left: parent.left
                         anchors.leftMargin: 30
                     }
+
+                    MouseArea{
+                        id:listItemMouseArea
+                        width: parent.width
+                        height: parent.height
+                        anchors.fill: parent
+                        onClicked:
+                        {
+                            list.currentIndex = index
+                            print("ItemIndex: ",list.currentIndex)
+                        }
+                    }
                 }
             }
         }
