@@ -98,13 +98,14 @@ void Test::removeItem()
     {
         return;
     }
-        QString removeData = m_itemList.at(rowCount()-1);
-        beginRemoveRows(QModelIndex(),rowCount()-1,rowCount()-1);
-        m_itemList.removeLast();
-        endRemoveRows();
-        m_subTestList.pop_back();
-        qDebug() << "removeData:" << removeData;
-        qDebug() << "totalItemCount: " << rowCount();
+
+    QString removeData = m_itemList.at(rowCount()-1);
+    beginRemoveRows(QModelIndex(),rowCount()-1,rowCount()-1);
+    m_itemList.removeLast();
+    endRemoveRows();
+    m_subTestList.pop_back();
+    qDebug() << "removeData:" << removeData;
+    qDebug() << "totalItemCount: " << rowCount();
 
 }
 
@@ -116,7 +117,7 @@ void Test::removeCount()
         return;
     }
 
-    QString str = m_itemList.last();
+    QString str = (m_itemList.last().split(" "))[0];
 
     if( str == "button1" )
     {
@@ -180,4 +181,25 @@ int Test::subBtn1Count()
 int Test::subBtn2Count()
 {
     return m_subTestList.at(m_currentIndex)->button2Count();
+}
+
+void Test::removeSubData()
+{
+    m_subTestList.at(m_currentIndex)->removeData();
+}
+
+QList <QString> Test::returnSub()
+{
+    int i =0;
+    if(i==0)
+    {
+        i++;
+        return aaa;
+    }
+    return m_subTestList.at(m_currentIndex)->returnList();
+}
+
+QString Test::returnSubData()
+{
+    return m_subTestList.at(m_currentIndex)->returnData();
 }

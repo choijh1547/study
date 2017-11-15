@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Test_t {
-    QByteArrayData data[24];
-    char stringdata0[227];
+    QByteArrayData data[28];
+    char stringdata0[280];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,7 +52,11 @@ QT_MOC_LITERAL(19, 168, 5), // "index"
 QT_MOC_LITERAL(20, 174, 15), // "getCurrentIndex"
 QT_MOC_LITERAL(21, 190, 10), // "setSubData"
 QT_MOC_LITERAL(22, 201, 12), // "subBtn1Count"
-QT_MOC_LITERAL(23, 214, 12) // "subBtn2Count"
+QT_MOC_LITERAL(23, 214, 12), // "subBtn2Count"
+QT_MOC_LITERAL(24, 227, 13), // "removeSubData"
+QT_MOC_LITERAL(25, 241, 9), // "returnSub"
+QT_MOC_LITERAL(26, 251, 14), // "QList<QString>"
+QT_MOC_LITERAL(27, 266, 13) // "returnSubData"
 
     },
     "Test\0init\0\0clickCount\0str\0printAll\0"
@@ -61,7 +65,8 @@ QT_MOC_LITERAL(23, 214, 12) // "subBtn2Count"
     "btn2Count\0currentStatus\0changedStatus\0"
     "status\0setCurrentIndex\0index\0"
     "getCurrentIndex\0setSubData\0subBtn1Count\0"
-    "subBtn2Count"
+    "subBtn2Count\0removeSubData\0returnSub\0"
+    "QList<QString>\0returnSubData"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,7 +76,7 @@ static const uint qt_meta_data_Test[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -79,24 +84,27 @@ static const uint qt_meta_data_Test[] = {
        0,       // signalCount
 
  // methods: name, argc, parameters, tag, flags
-       1,    0,  104,    2, 0x02 /* Public */,
-       3,    1,  105,    2, 0x02 /* Public */,
-       5,    0,  108,    2, 0x02 /* Public */,
-       6,    1,  109,    2, 0x02 /* Public */,
-       8,    1,  112,    2, 0x02 /* Public */,
-       8,    0,  115,    2, 0x22 /* Public | MethodCloned */,
-      10,    0,  116,    2, 0x02 /* Public */,
-      11,    0,  117,    2, 0x02 /* Public */,
-      12,    0,  118,    2, 0x02 /* Public */,
-      13,    0,  119,    2, 0x02 /* Public */,
-      14,    0,  120,    2, 0x02 /* Public */,
-      15,    0,  121,    2, 0x02 /* Public */,
-      16,    1,  122,    2, 0x02 /* Public */,
-      18,    1,  125,    2, 0x02 /* Public */,
-      20,    0,  128,    2, 0x02 /* Public */,
-      21,    1,  129,    2, 0x02 /* Public */,
-      22,    0,  132,    2, 0x02 /* Public */,
-      23,    0,  133,    2, 0x02 /* Public */,
+       1,    0,  119,    2, 0x02 /* Public */,
+       3,    1,  120,    2, 0x02 /* Public */,
+       5,    0,  123,    2, 0x02 /* Public */,
+       6,    1,  124,    2, 0x02 /* Public */,
+       8,    1,  127,    2, 0x02 /* Public */,
+       8,    0,  130,    2, 0x22 /* Public | MethodCloned */,
+      10,    0,  131,    2, 0x02 /* Public */,
+      11,    0,  132,    2, 0x02 /* Public */,
+      12,    0,  133,    2, 0x02 /* Public */,
+      13,    0,  134,    2, 0x02 /* Public */,
+      14,    0,  135,    2, 0x02 /* Public */,
+      15,    0,  136,    2, 0x02 /* Public */,
+      16,    1,  137,    2, 0x02 /* Public */,
+      18,    1,  140,    2, 0x02 /* Public */,
+      20,    0,  143,    2, 0x02 /* Public */,
+      21,    1,  144,    2, 0x02 /* Public */,
+      22,    0,  147,    2, 0x02 /* Public */,
+      23,    0,  148,    2, 0x02 /* Public */,
+      24,    0,  149,    2, 0x02 /* Public */,
+      25,    0,  150,    2, 0x02 /* Public */,
+      27,    0,  151,    2, 0x02 /* Public */,
 
  // methods: parameters
     QMetaType::Void,
@@ -117,6 +125,9 @@ static const uint qt_meta_data_Test[] = {
     QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Int,
     QMetaType::Int,
+    QMetaType::Void,
+    0x80000000 | 26,
+    QMetaType::QString,
 
        0        // eod
 };
@@ -154,6 +165,11 @@ void Test::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
         case 17: { int _r = _t->subBtn2Count();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
+        case 18: _t->removeSubData(); break;
+        case 19: { QList<QString> _r = _t->returnSub();
+            if (_a[0]) *reinterpret_cast< QList<QString>*>(_a[0]) = _r; }  break;
+        case 20: { QString _r = _t->returnSubData();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
         default: ;
         }
     }
@@ -184,13 +200,13 @@ int Test::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 18;
+        _id -= 21;
     }
     return _id;
 }

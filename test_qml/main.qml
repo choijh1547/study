@@ -31,7 +31,6 @@ Window {
             text: btn1MouseArea.pressed ? "InsertData: "+button1.objectName : btn2MouseArea.pressed ? "InsertData: "+button2.objectName : ""
             y:button1.y/2
             horizontalAlignment: Text.AlignHCenter
-
         }
 
         Rectangle
@@ -149,8 +148,15 @@ Window {
                 anchors.fill:parent
                 onClicked:
                 {
-                    test.removeCount();
-                    test.removeItem();
+                    if( test.currentStatus() == false )
+                    {
+                        test.removeCount();
+                        test.removeItem();
+                    }
+                    else
+                    {
+                        test.removeSubData();
+                    }
                 }
             }
         }
@@ -245,6 +251,7 @@ Window {
         ListView
         {
             id:subList
+            model:test.returnSub()
             width: parent.width
             height: parent.height
             delegate:
@@ -256,7 +263,7 @@ Window {
                     color: listItemMouseArea.pressed ? "gray" : "white"
 
                     Text{
-//                        text:
+                        text: test.returnSub()
                         anchors.verticalCenter : parent.verticalCenter
                         anchors.left: parent.left
                         anchors.leftMargin: 30

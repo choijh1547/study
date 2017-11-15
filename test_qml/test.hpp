@@ -35,6 +35,9 @@ public:
     Q_INVOKABLE void setSubData(QString str);
     Q_INVOKABLE int subBtn1Count();
     Q_INVOKABLE int subBtn2Count();
+    Q_INVOKABLE void removeSubData();
+    Q_INVOKABLE QList <QString> returnSub();
+    Q_INVOKABLE QString returnSubData();
 
 private:
     int m_button1;
@@ -44,6 +47,7 @@ private:
     QMap <QString, int> m_clickedCount;
     QVector <QString> m_itemList;
     QVector<SubTest *> m_subTestList;
+    QList <QString> aaa;
 
     bool m_status;
 };

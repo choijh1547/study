@@ -12,13 +12,16 @@ public:
     void addSubData(QString str);
     int button1Count();
     int button2Count();
+    void removeData();
+    QList <QString> returnList();
+    QString returnData();
 
 
 private:
     int m_button1;
     int m_button2;
 
-    QVector <QString> m_subDataList;
+    QList <QString> m_subDataList;
 
 };
 
