@@ -10,9 +10,16 @@ SubTest::SubTest()
 
 void SubTest::addSubData(QString str)
 {
+    if( m_subDataList.size() < 10 )
+    {
         m_subDataList.append(str); ;
         qDebug() << "subDataListSize: " << m_subDataList.size();
         qDebug() << "subDataLast: " << m_subDataList.last();
+    }
+    else
+    {
+        qDebug() << "out of range!!";
+    }
 }
 
 int SubTest::button1Count()
